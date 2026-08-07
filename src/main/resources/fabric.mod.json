@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "autotrade",
+  "version": "${version}",
+  "name": "AutoTrade",
+  "description": "Client-side auto-trade with nearby villagers.",
+  "authors": ["you"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/autotrade/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.autotrade.AutoTradeClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
