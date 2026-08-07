@@ -1,0 +1,54 @@
+plugins {
+    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    // Add repositories here as needed
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // 1.21.11 is the LAST version with Yarn mappings support (Fabric is moving to official
+    // Mojang mappings after this release). Yarn is used here so class/method names match the
+    // code below and the vast majority of existing Fabric tutorials/wiki examples.
+    // If your local toolchain no longer resolves Yarn for 1.21.11, switch this line to:
+    //   mappings loom.officialMojangMappings()
+    // and rename classes per Mojang's naming (e.g. MinecraftClient -> Minecraft,
+    // ClientPlayerEntity -> LocalPlayer, PlayerInventory -> Inventory, etc.)
+    mappings "net.fabricmc:yarn:${project.minecraft_version}+build.1:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}" }
+    }
+}
+
