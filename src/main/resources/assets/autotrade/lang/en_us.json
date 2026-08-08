@@ -1,4 +1,5 @@
 {
-  "key.autotrade.activate": "Auto Trade with targeted villager",
-  "category.autotrade": "AutoTrade Mod"
+  "key.autotrade.trade_once": "Trade current offer",
+  "key.autotrade.toggle_auto": "Toggle Auto-Trade",
+  "category.autotrade": "AutoTrade"
 }
