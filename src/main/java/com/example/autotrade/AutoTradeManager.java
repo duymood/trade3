@@ -105,7 +105,7 @@ public class AutoTradeManager {
         }
 
         // Select the trade slot, then simulate clicking the merchant's output slot to execute it.
-        handler.setSelectedRecipe(slot);
+        handler.setRecipeIndex(slot);
         // Slot index 2 = the merchant's result/output slot (0 = input 1, 1 = input 2, 2 = output).
         client.interactionManager.clickSlot(handler.syncId, 2, 0, SlotActionType.PICKUP, client.player);
         // Put the traded item back into the player's inventory instead of leaving it on cursor.
