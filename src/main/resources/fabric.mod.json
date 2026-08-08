@@ -3,21 +3,20 @@
   "id": "autotrade",
   "version": "${version}",
   "name": "AutoTrade",
-  "description": "Client-side auto-trade with nearby villagers.",
-  "authors": ["you"],
+  "description": "Tự động tìm dân làng gần nhất, mở giao diện trade và thực hiện đổi hàng.",
+  "authors": ["You"],
   "contact": {},
   "license": "MIT",
   "icon": "assets/autotrade/icon.png",
   "environment": "client",
   "entrypoints": {
-    "client": [
-      "com.example.autotrade.AutoTradeClient"
-    ]
+    "main": ["com.example.autotrade.AutoTradeMod"],
+    "client": ["com.example.autotrade.AutoTradeClient"]
   },
+  "mixins": [],
   "depends": {
-    "fabricloader": ">=0.16.10",
+    "fabricloader": ">=0.18.0",
     "minecraft": "~1.21.11",
-    "java": ">=21",
     "fabric-api": "*"
   }
 }
